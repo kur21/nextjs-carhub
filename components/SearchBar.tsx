@@ -30,6 +30,10 @@ const SearchBar = () => {
   const updateSearchParams = (manufacturer: string, model: string) => {
     const searchParams = new URLSearchParams(window.location.search)
 
+    if(searchParams.get('limit')) {
+      searchParams.delete('limit')
+    }
+
     if(manufacturer) {
       searchParams.set('manufacturer', manufacturer.toLowerCase())
     } else {
